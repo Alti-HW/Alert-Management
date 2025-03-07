@@ -1,0 +1,23 @@
+﻿global:
+  resolve_timeout: 1m  # Wait 1 min before marking as resolved
+
+route:
+  receiver: "email-and-api"
+  group_wait: 0s  # Send the first alert immediately
+  group_interval: 2m  # Wait 5 minutes before sending another alert
+  repeat_interval: 2m  # If not resolved, resend every 5 minutes
+  
+receivers:
+  - name: "email-and-api"
+    email_configs:
+      - to: "basamdileepkumar@gmail.com"
+        from: "basamdileepkumar@gmail.com"
+        smarthost: "smtp.gmail.com:587"
+        auth_username: "basamdileepkumar@gmail.com"
+        auth_password: "sstg btiw sqyk utbw"
+        require_tls: true
+        send_resolved: true  # ✅ Ensures you get an email when the alert resolves
+
+    webhook_configs:
+      - url: "http://localhost:5057/api/alerts/receive"
+        send_resolved: true  # ✅ Ensures resolved alerts are sent to your .NET API

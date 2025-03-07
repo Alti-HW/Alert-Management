@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 1s  # ⏩ Reduced scrape interval from 1s to 5s to optimize performance
+
+scrape_configs:
+  - job_name: 'energy_metrics'
+    scrape_interval: 1s  # ⏩ Adjusted to match global scrape interval
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ['localhost:5057']  # Assuming .NET API exposes metrics here
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ["localhost:9093"]  # AlertManager URL
+
+rule_files:
+  - 'alert_rules.yml'  # Load alert rules

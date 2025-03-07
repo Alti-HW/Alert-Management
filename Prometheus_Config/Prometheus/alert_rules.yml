@@ -1,0 +1,32 @@
+groups:
+- name: EnergyAlerts
+  rules:
+  - alert: HighEnergyConsumption
+    expr: energy_consumption_energy_consumed_kwh >= 900
+    for: 1m
+    labels:
+      severity: low
+    annotations:
+      summary: High Energy Consumption!
+      description: energy_consumption_energy_consumed_kwh >= 900
+  - alert: Peak Load
+    expr: energy_consumption_peak_load_kw > 800
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      description: Peak load descrption
+  - alert: Average Temperature
+    expr: energy_consumption_avg_temperature_c > 400
+    for: 1m
+    labels:
+      severity: low
+    annotations:
+      description: Average Temperature
+  - alert: co2 emission
+    expr: energy_consumption_co2_emissions_kg>300
+    for: 2m
+    labels:
+      severity: high
+    annotations:
+      description: co2 emission

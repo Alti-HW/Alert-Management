@@ -1,0 +1,27 @@
+pg_energy_consumption:
+  query: "SELECT building_id, name AS building_name, floor_id, floor_number, energy_consumed_kwh, peak_load_kw, avg_temperature_c, co2_emissions_kg FROM energy_consumption_details"
+  metrics:
+    - building_id:
+        usage: "LABEL"
+        description: "ID of the Building"
+    - building_name:
+        usage: "LABEL"
+        description: "Name of the Building"
+    - floor_id:
+        usage: "LABEL"
+        description: "ID of the Floor"
+    - floor_number:
+        usage: "LABEL"
+        description: "Floor Number"
+    - energy_consumed_kwh:
+        usage: "GAUGE"
+        description: "Total Energy Consumed (kWh)"
+    - peak_load_kw:
+        usage: "GAUGE"
+        description: "Peak Load (kW)"
+    - avg_temperature_c:
+        usage: "GAUGE"
+        description: "Average Temperature (°C)"
+    - co2_emissions_kg:
+        usage: "GAUGE"
+        description: "CO₂ Emissions (kg)"
