@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 public class EnergyMetricsService : BackgroundService
 {
-    private readonly string _connectionString = "Host=pg-1c707a6d-basamdileepkumar-9fe8.d.aivencloud.com;Port=26900;Username=avnadmin;Password=AVNS__6UJ9rVOAAkzZi6LUJ6;Database=EMS_HoneyWell;SSL Mode=Require";
+    private readonly string _connectionString;
     private readonly Dictionary<string, Gauge> _gauges = new();
 
-    public EnergyMetricsService()
+    public EnergyMetricsService(IConfiguration configuration)
     {
+        _connectionString = configuration.GetConnectionString("MonitoringDBConnection");
         RegisterMetrics("energy_consumption", new[] { "energy_consumed_kwh", "peak_load_kw", "avg_temperature_c", "co2_emissions_kg" });
     }
 
