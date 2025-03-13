@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Models\EMSModels\" />
+    <Folder Include="Docs\" />
     <Folder Include="Prometheus_Config\AlertManager\" />
     <Folder Include="Prometheus_Config\Postgres_Exporter\" />
     <Folder Include="Prometheus_Config\Prometheus\" />

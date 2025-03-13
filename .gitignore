@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 *.http
+/Prometheus_Config/Prometheus/data/wal/00000000
+/Prometheus_Config/Prometheus/data/queries.active
