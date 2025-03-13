@@ -364,3 +364,5 @@ FodyWeavers.xsd
 *.http
 /Prometheus_Config/Prometheus/data/wal/00000000
 /Prometheus_Config/Prometheus/data/queries.active
+/Prometheus_Config/AlertManager/data/nflog
+/Prometheus_Config/AlertManager/data/silences
